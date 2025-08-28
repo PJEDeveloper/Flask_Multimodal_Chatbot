@@ -1,0 +1,75 @@
+# CITATION.cff
+# Update the title and version if needed.
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Mistral_Flask_Chatbot_Class_Stable_v3"
+version: "0.1.0"
+authors:
+  - family-names: Hill
+    given-names: Patrick
+license: Apache-2.0
+date-released: 2025-08-27
+
+preferred-citation:
+  type: software
+  title: "Flask_Multimodal_Chatbot"
+  authors:
+    - family-names: Hill
+      given-names: Patrick
+  year: 2025
+  url: "https://github.com/PJEDeveloper/Flask_Multimodal_Chatbot"  # replace with your repo URL if available
+  license: Apache-2.0
+
+references:
+  # BLIP paper
+  - type: article
+    title: "BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation"
+    authors:
+      - family-names: Li
+        given-names: Junnan
+      - family-names: Li
+        given-names: Dongxu
+      - family-names: Xiong
+        given-names: Caiming
+      - family-names: Hoi
+        given-names: Steven
+    year: 2022
+    doi: 10.48550/arXiv.2201.12086
+    url: "https://arxiv.org/abs/2201.12086"
+
+  # Whisper paper
+  - type: article
+    title: "Robust Speech Recognition via Large-Scale Weak Supervision"
+    authors:
+      - family-names: Radford
+        given-names: Alec
+      - family-names: Kim
+        given-names: Jong Wook
+      - family-names: Xu
+        given-names: Tao
+      - family-names: Brockman
+        given-names: Greg
+      - family-names: McLeavey
+        given-names: Christine
+      - family-names: Sutskever
+        given-names: Ilya
+    year: 2022
+    doi: 10.48550/arXiv.2212.04356
+    url: "https://arxiv.org/abs/2212.04356"
+
+  # Upstream model repos (as software references)
+  - type: software
+    title: "mistralai/Mistral-Nemo-Instruct-2407"
+    url: "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407"
+    license: Apache-2.0
+
+  - type: software
+    title: "Salesforce/blip-image-captioning-large"
+    url: "https://huggingface.co/Salesforce/blip-image-captioning-large"
+    license: BSD-3-Clause
+
+  - type: software
+    title: "openai/whisper-large-v3-turbo"
+    url: "https://huggingface.co/openai/whisper-large-v3-turbo"
+    license: Apache-2.0
