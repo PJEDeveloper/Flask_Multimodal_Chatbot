@@ -1,0 +1,357 @@
+/* Background */
+body {
+    background: url('/static/thinker.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Glassmorphism for cards */
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    opacity: 0.80;
+    transition: 0.3s ease-in-out;
+}
+
+/* Styles for card header: adds a gradient background and bold text */
+.card-header {
+    background: linear-gradient(90deg, rgba(0, 123, 255, 0.6), #5ab36f);
+    font-weight: bold;
+}
+
+/* Styles for conversation history section: transparent background with white text */
+#conversation-history {
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Styles for the card body: semi-transparent background and rounded corners */
+.card-body {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+}
+
+/* Styles for all buttons: bold text, rounded corners, and smooth opacity transition */
+button {
+    font-weight: bold;
+    border-radius: 8px;
+    opacity: 0.78;
+    transition: 0.3s ease;
+}
+
+/* Hover effect for buttons: increase opacity for better visibility */
+button:hover {
+    opacity: 1;
+}
+
+/* Styles for response container: larger text, dark semi-transparent background, padding, and rounded edges */
+#response {
+    font-size: 16px;
+    line-height: 1.5;
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    padding: 10px;
+    border-radius: 12px;       
+    margin-top: 2.5px !important;
+    height: 323px !important;    
+    margin-bottom: 5px;
+}
+
+/* Heading style: gold color with a dark shadow for emphasis */
+h1 {
+    color: #FFD700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Highlight style for active conversation history: gold border and glowing shadow */
+.active-history {
+    border: 2px solid #FFD700;
+    box-shadow: 0 0 8px #FFD700;
+}
+
+/* Styles for bold text in assistant responses: gold gradient applied to text for emphasis */
+.assistant-response strong,
+.assistant-response b {
+    font-weight: 700;
+    background: linear-gradient(90deg, #FFD700, #FFEA70);
+    background-clip: text;           
+    -webkit-background-clip: text;   
+    color: transparent;              
+    -webkit-text-fill-color: transparent; 
+}
+
+/* Hover effect for bold text in assistant responses: adds a glowing gold shadow for emphasis */
+.assistant-response strong:hover,
+.assistant-response b:hover {
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+}
+
+/* Heading styles within assistant responses: gold text color for emphasis */
+.assistant-response h1, .assistant-response h2 {
+    color: #FFD700;
+}
+
+/* Styles for code blocks inside assistant responses: light background, padding, rounded corners, and monospace font */
+.assistant-response pre, .assistant-response code {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-family: monospace;
+}
+
+/* Styles for the copy button: positioned in the corner with subtle animations and hover-ready appearance */
+.copy-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    padding: 3px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    background: #333;
+    color: #fff;
+    border-radius: 4px;
+    opacity: 0;
+    transform: translateY(-5px);
+    animation: fadeInCopyBtn 0.4s ease forwards;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect for the copy button: change background to blue and add a glowing shadow */
+.copy-btn:hover {
+    background: #007bff;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5);
+}
+
+/* Keyframe animation for copy button: fades in and slides down smoothly */
+@keyframes fadeInCopyBtn {
+    0% { opacity: 0; transform: translateY(-5px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Google Search Toggle Styling */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Label for Google Search Toggle */
+.toggle-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ddd;
+    background: linear-gradient(90deg, #1992dd, #2989e2);
+    background-clip: text;            
+    -webkit-background-clip: text;    
+    -webkit-text-fill-color: transparent;
+    transition: all 0.4s ease;
+}
+
+/* Glow effect when toggle is ON */
+input:checked ~ .toggle-label {
+    text-shadow: 0 0 12px rgba(0, 191, 255, 0.8), 0 0 20px rgba(0, 191, 255, 0.4);
+}
+
+/* Base style for a custom switch: sets size and relative positioning for toggle mechanism */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+/* Hides the default checkbox input for the custom switch component */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider element for the custom switch: full coverage, rounded edges, and smooth color transition */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+/* Knob element inside the slider: circular, positioned at the left by default, with smooth movement on toggle */
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* Change slider background color when the associated input is checked */
+input:checked + .slider {
+    background-color: #00bfff; 
+}
+
+/* Moves the circular knob to the right when the input is checked (toggle ON state) */
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Rounded style for the slider track to create a pill-shaped toggle switch */
+.slider.round {
+    border-radius: 34px;
+}
+
+/* Ensures the slider knob remains perfectly circular in the rounded toggle design */
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Indicator text */
+#google-indicator {
+    font-size: 13px;
+    color: #bbb;
+}
+
+/* Styles for active Google indicator: green color and bold text to signal activation */
+#google-indicator.active {
+    color: #10c045;
+    font-weight: bold;
+}
+
+/* Variant style for card headers with success context: gradient background and bold text */
+.card-header.bg-success {
+    background: linear-gradient(90deg, rgba(0, 123, 255, 0.6), #5ab36f);
+    font-weight: bold;
+}
+
+/* Input window header: match gradient of card headers for consistency */
+.input-header {
+    background: linear-gradient(90deg, rgba(0, 123, 255, 0.6), #5ab36f);
+    font-weight: bold;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 10px 16px;
+}
+
+/* Drop zone styling for document uploads: dashed green border, subtle background, and smooth hover transition */
+#document-drop-zone {
+    border: 2px dashed #28a745;
+    border-radius: 8px;
+    background: rgba(40, 167, 69, 0.05);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Drag-over state for document drop zone: darker green background and border to indicate active drop area */
+#document-drop-zone.drag-over {
+    background: rgba(40, 167, 69, 0.15);
+    border-color: #218838;
+}
+
+/* Styles for the document indicator: small font size and muted gray color */
+#document-indicator {
+    font-size: 13px;
+    color: #bbb;
+}
+
+/* Active state for document indicator: changes text to green and applies bold weight */
+#document-indicator.active {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Positioning Adjustments */
+
+/* Header title styling: larger font size, centered text, and compact vertical spacing */
+header h1 {
+    font-size: 1.6rem !important;
+    margin-top: 5px !important;  
+    margin-bottom: 5px !important; 
+    text-align: center;
+}
+
+/* Left column (Conversation History + Document Summary) */
+.col-md-4 .card {
+    height: 42.5vh !important; 
+    overflow-y: auto; 
+}
+
+/* Right column (Input Panel) */
+.col-md-8 {
+    margin-top: -47px !important; 
+}
+
+/* Cards in left column share available height */
+.col-md-4.d-flex {
+    gap: 10px !important;
+    margin-top: 90px !important; 
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid, .row {
+    height: calc(100vh - 80px); /* full height minus header */
+}
+
+.col-md-3, .col-md-6 {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+#response {
+    min-height: 100%;
+    max-height: 100%;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid, .row {
+    height: calc(100vh - 20px); /* small margin at top */
+}
+
+.col-md-3, .col-md-6 {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+#response {
+    min-height: 95%;
+    max-height: 100%;
+}
+
+/* Add margin above the whole section */
+.container-fluid {
+    margin-top: 5px;
+}
