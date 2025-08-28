@@ -1,6 +1,0 @@
-torch
-torchaudio
-transformers
-pillow
-accelerate
-bitsandbytes
